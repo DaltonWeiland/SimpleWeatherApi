@@ -1,8 +1,8 @@
 # Simple Weather API
 ## Description
 Given a lattitude and longitude pair, find the weather forecast for the specific point.\
-The python program p1.py will generate a json file given a lattitude and longitude that is then used by the index.html file to create a webpage of the weather forecast.
-This uses the weather.gov api to retrieve it's data.
+The python program p1.py will generate a json file given a lattitude and longitude that is then used by the index.html file to create a webpage of the weather forecast.\
+This uses the weather.gov api to retrieve it's data.\
 ## Requirements
 1. Python which can be downloaded here: https://www.python.org/downloads/
 2. An internet connection
