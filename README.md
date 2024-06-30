@@ -5,7 +5,8 @@ The python program p1.py will generate a json file given a lattitude and longitu
 This uses the weather.gov api to retrieve it's data.
 ## Requirements
 1. Python which can be downloaded here: https://www.python.org/downloads/
-2. An internet connection.
+2. The requests package
+3. An internet connection.
 ## How to Use
 1. Download the p1.py and index.html files.
 2. In a terminal within the same directory as the p1.py and index.html file run '$>python p1.py (lattitude) (longittude)' Replace the parenthesis values with your own.
