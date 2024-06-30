@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .forecast-period {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .period-name {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .forecast-details {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weather Forecast</h1>
+    <div id="forecast-container">  
+    </div>
+    <script>
+        function createForecastHTML(periods) {
+            let html = '';
+            periods.forEach(period => {
+                html += `<div class="forecast-period">
+                            <div class="period-name">${period.name}</div>
+                            <div class="forecast-details">
+                                <p><strong>Start Time:</strong> ${period.startTime}</p>
+                                <p><strong>End Time:</strong> ${period.endTime}</p>
+                                <p><strong>Temperature:</strong> ${period.temperature} ${period.temperatureUnit}</p>
+                                <p><strong>Probability of Precipitation:</strong> ${period.probabilityOfPrecipitation.value}%</p>
+                                <p><strong>Wind Speed:</strong> ${period.windSpeed}</p>
+                                <p><strong>Wind Direction:</strong> ${period.windDirection}</p>
+                                <p><strong>Short Forecast:</strong> ${period.shortForecast}</p>
+                                <p><strong>Detailed Forecast:</strong> ${period.detailedForecast}</p>
+                            </div>
+                        </div>`;
+            });
+            return html;
+        }
+
+        // Fetch JSON data from file
+        fetch('forecast.json')
+            .then(response => response.json())
+            .then(data => {
+                const forecastContainer = document.getElementById('forecast-container');
+                if (forecastContainer) {
+                    forecastContainer.innerHTML = createForecastHTML(data.properties.periods);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching forecast:', error);
+            });
+    </script>
+</body>
+</html>
