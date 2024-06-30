@@ -1,2 +1,1 @@
-# Simple Weather API
-h1 ds
+# H1 Simple Weather API
